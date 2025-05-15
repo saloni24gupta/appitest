@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Test API",
+    "description": "A simple API to test Azure API Management integration.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://example.com/api"
+    }
+  ],
+  "paths": {
+    "/hello": {
+      "get": {
+        "summary": "Say Hello",
+        "description": "Returns a friendly greeting.",
+        "responses": {
+          "200": {
+            "description": "A friendly greeting",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Hello, World!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/echo": {
+      "post": {
+        "summary": "Echo back posted data",
+        "description": "Receives a JSON payload and echoes it back.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Echoed back input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
